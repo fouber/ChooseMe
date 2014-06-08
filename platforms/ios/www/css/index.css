@@ -1,0 +1,274 @@
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+}
+
+.views {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.view {
+    position: absolute;
+    left: 0; top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-transition: all 0.5s;
+    -webkit-overflow-scrolling: touch;
+    background: #fff;
+}
+
+.header {
+    height: 100px;
+    position: relative;
+}
+
+.header .title {
+    height: 45px;
+    position: absolute;
+    top: 35px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+    text-shadow: 0 1px 5px rgba(0,0,0,0.3);
+    color: #444;
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    -webkit-transition: all 0.3s ease-out;
+}
+
+.header .title.show {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+}
+
+.content:after {
+    content: ' ';
+    position: absolute;
+    top: 0; left: 0;
+    height: 15px; width: 100%;
+    background: url(../assets/wave.png) repeat-x 0 0;
+    background-size: 15px 15px;
+    overflow:hidden;
+}
+
+.content {
+    position: absolute;
+    top: 100px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.content .views,
+.content .view {
+    background: #2d3e50;
+    color: #fff;
+}
+.content .view {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+}
+
+.content .view.active {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+}
+
+.btn {
+    background: #ecf0f1;
+    display: inline-block;
+    color: #575959;
+    padding: 13px 20px 10px;
+    font-size: 20px;
+    border-radius: 5px;
+    border-bottom: 3px solid rgba(0,0,0,0.25);
+    box-shadow: 0 2px 2px rgba(0,0,0,0.5);
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.btn.active {
+    border-bottom-color: transparent;
+    color: #000;
+    -webkit-transform: translate3d(0,1px,0);
+    box-shadow: 0 0 1px rgba(0,0,0,0.5);
+}
+
+.btn.btn-primary {
+    background: #3598db;
+    color: #fff;
+}
+
+.btn.selected {
+    background: #e6483a;
+    color: #fff;
+    border: none;
+    padding-bottom: 13px;
+    box-shadow: inset 0 2px 3px rgba(0,0,0,0.5);
+}
+
+.inner {
+    padding: 20px 10px;
+}
+
+.home {
+    position: absolute;
+    top: 30px;
+    left: 10px;
+    color: #fff;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    border: 2px solid #fff;
+    border-radius: 100px;
+    font-size: 15px;
+    background: #1e2936;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+    -webkit-transform: translate3d(0, -30px, 0);
+    opacity: 0;
+    -webkit-transition: all 0.3s ease-out;
+}
+
+.home:after {
+    content: ' ';
+    position: absolute;
+    top: -100px;
+    height: 100px;
+    width: 0;
+    overflow: hidden;
+    border-left: 2px solid #fff;
+    left: 50%;
+    margin-left: -1px;
+}
+
+.show-home .home {
+    -webkit-transform: translate3d(0, 0, 0);
+    opacity: 1;
+}
+
+.types {
+    padding-top: 20px;
+}
+
+.types .btn {
+    display: block;
+    width: 200px;
+    margin: 30px auto 0;
+}
+
+.number .title {
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#1e2936), to(#19222e));
+    width: 200px;
+    margin: 20px auto;
+    text-align: center;
+    padding: 15px 0;
+    border-radius: 5px;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.7);
+    font-size: 18px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.7);
+}
+
+.number .btns {
+    text-align: center;
+    margin: 50px 0;
+}
+
+.number .btn {
+    margin-right: 5px;
+}
+
+.number .btn:last-child {
+    margin-right: 0;
+}
+
+#start {
+    display: block;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    margin-left: -70px;
+    width: 100px;
+}
+
+.finger {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    top: -1000px; left: -1000px;
+    border-radius: 100px;
+    background: url(../assets/finger.png) no-repeat 0 0;
+    background-size: 100% 100%;
+    opacity: 0.3;
+    -webkit-transition: all 0.3s ease-out;
+}
+
+.finger.on {
+    opacity: 1;
+}
+
+.finger:after,
+.finger:before {
+    content: ' ';
+    overflow: hidden;
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    background: url(../assets/finger-outer.png) no-repeat 0 0;
+    background-size: 100% 100%;
+    left: -20px; top: -20px;
+}
+
+.finger:before {
+    background-image: url(../assets/finger-outer.png);
+    -webkit-animation: spin 4s infinite linear;
+}
+
+.finger:after {
+    background-image: url(../assets/finger-inner.png);
+    -webkit-animation: spin-back 5s infinite linear;
+}
+
+#fingers {
+    position: absolute;
+    top: 0; left: 0;
+    bottom: 0; right: 0;
+    overflow: hidden;
+}
+
+#tip {
+    position: absolute;
+    top: 50%; left: 0;
+    width: 100%;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.7);
+    height: 20px;
+    margin-top: -10px;
+}
+
+#tip span {
+    color: #2dcc70;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+@-webkit-keyframes spin-back {
+    0% {
+        -webkit-transform: rotate(359deg);
+    }
+    100% {
+        -webkit-transform: rotate(0deg);
+    }
+}

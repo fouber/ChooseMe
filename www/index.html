@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+        <link rel="stylesheet" type="text/css" href="css/reset.css" />
+        <link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>Choose One!</title>
+    </head>
+    <body>
+        <div class="main">
+            <div class="header">
+                <h1 class="title show"></h1>
+                <h1 class="title"></h1>
+            </div>
+            <div class="content">
+                <div class="views">
+                    <div class="view types" data-page="index" data-title="别选我" id="menu">
+                        <nav>
+                            <a href="javascript:void(0)" data-type="zxh" class="btn">真心话</a>
+                            <a href="javascript:void(0)" data-type="dmx" class="btn">大冒险</a>
+                            <a href="javascript:void(0)" data-type="sfz" class="btn">谁付账</a>
+                            <a href="javascript:void(0)" data-type="tsd" class="btn">听谁的</a>
+                        </nav>
+                    </div>
+                    <div class="view number" data-page="number">
+                        <div class="inner">
+                            <h1 class="title">
+                                <i class="fa fa-male"></i>&nbsp; 几个人 ?
+                            </h1>
+                            <nav id="number" class="btns">
+                                <a href="javascript:void(0)" class="btn selected">2</a>
+                                <a href="javascript:void(0)" class="btn">3</a>
+                                <a href="javascript:void(0)" class="btn">4</a>
+                                <a href="javascript:void(0)" class="btn">5</a>
+                            </nav>
+                            <a id="start" href="javascript:void(0)" class="btn btn-primary">开始</a>
+                        </div>
+                    </div>
+                    <div class="view fingers" data-page="fingers">
+                        <div id="tip"></div>
+                        <div id="fingers"></div>
+                    </div>
+                </div>
+                <div id="home" class="home">
+                    <i class="fa fa-home"></i>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/zepto.min.js"></script>
+        <script type="text/javascript" src="js/amd.js"></script>
+        <script type="text/javascript" src="js/page.js"></script>
+        <script type="text/javascript" src="js/info.js"></script>
+        <script type="text/javascript" src="js/finger.js"></script>
+        <script type="text/javascript" src="js/number.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>
