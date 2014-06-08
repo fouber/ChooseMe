@@ -282,7 +282,7 @@ html, body {
 
 .finger.lucky {
     background-color: rgba(255,255,255,0.3);
-    -webkit-animation: lucky 2s infinite linear;
+    -webkit-animation: lucky 1s infinite linear;
 }
 
 .finger.lucky .before {
