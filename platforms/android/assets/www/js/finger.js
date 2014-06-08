@@ -7,11 +7,15 @@ define('finger', function(require, exports){
     var HEIGHT = document.body.clientHeight - 100;
     var RADIUS = 45;
     var OFFSET = 1000 - RADIUS;
+    var centerX = Math.floor(WIDTH / 2);
+    var centerY = Math.floor(HEIGHT / 2);
 
     var timer;
     var count = info.number;
+    var angles = [];
 
     $(document.body).on('touchstart', '.finger', function(e){
+        if(info.choosing) return;
         $(this).addClass('on');
         count--;
         check();
@@ -20,6 +24,7 @@ define('finger', function(require, exports){
     });
 
     $(document.body).on('touchend', '.finger', function(e){
+        if(info.choosing) return;
         $(this).removeClass('on');
         count++;
         check();
@@ -27,7 +32,20 @@ define('finger', function(require, exports){
         e.stopPropagation();
     });
 
+    function finish(index){
+        $('.finger').each(function(i){
+            var $this = $(this);
+            if(index !== i){
+                $this.css('opacity', '0');
+            } else {
+                $this.addClass('lucky');
+            }
+        });
+        info.canGoHome = true;
+    }
+
     function check(){
+        info.canGoHome = count === info.number;
         clearTimeout(timer);
         exports.tip(count);
         if(count === 0){
@@ -45,7 +63,27 @@ define('finger', function(require, exports){
     }
 
     function start(){
-        $('#tip').html('GO!');
+        info.choosing = true;
+        var $tip = $('#tip');
+        $tip.html('');
+        var arrow = document.createElement('div');
+        arrow.className = 'arrow';
+        arrow.style.left = centerX + 'px';
+        arrow.style.top = 0 + 'px';
+        $tip.append(arrow);
+        var index = Math.floor(Math.random() * angles.length);
+        var target = Math.PI * 6 + angles[index] + Math.PI / 2;
+        var angle = 0, speed = 100;
+        var timer = setInterval(function(){
+            if(Math.abs(target - angle) < 0.1){
+                angle = target;
+                clearInterval(timer);
+                finish(index);
+            } else {
+                angle += (target - angle) / speed;
+            }
+            arrow.style.webkitTransform = 'rotate3d(0,0,1,' + (angle * 180 / Math.PI) + 'deg)';
+        }, 0);
     }
 
     exports.tip = function(num){
@@ -59,22 +97,20 @@ define('finger', function(require, exports){
     };
 
     exports.show = function(title){
-        var fingers = $('#fingers');
-        fingers.html('');
+        var fingers = $('#fingers').html('');
         this.tip(info.number);
         count = info.number;
+        angles = [];
         var html = '';
         var step = 2 * Math.PI / count;
         var a = WIDTH / 3.5;
         var b = HEIGHT / 3.5;
-        var x0 = WIDTH / 2 + OFFSET;
-        var y0 = HEIGHT / 2 + OFFSET;
         var angle = Math.PI / 2 + Math.PI / 6 * (1 - 2 * Math.random());
         for(var i = 0; i < count; i++){
-            var x = Math.floor(a * Math.cos(angle)) + x0;
-            var y = Math.floor(b * Math.sin(angle)) + y0;
-            var x2 = Math.floor(WIDTH * Math.cos(angle)) + x0;
-            var y2 = Math.floor(HEIGHT * Math.sin(angle)) + y0;
+            var x = Math.floor(a * Math.cos(angle)) + centerX + OFFSET;
+            var y = Math.floor(b * Math.sin(angle)) + centerY + OFFSET;
+            var x2 = Math.floor(WIDTH * Math.cos(angle)) + centerX + OFFSET;
+            var y2 = Math.floor(HEIGHT * Math.sin(angle)) + centerY + OFFSET;
             var deg = Math.floor( angle * 180 / Math.PI - 90 );
             var style = '-webkit-transition-delay:' + 0.5 * Math.random() + 's;';
             style += '-webkit-transform:';
@@ -86,6 +122,7 @@ define('finger', function(require, exports){
             html += '<div class="before"></div>';
             html += '<div class="after"></div>';
             html += '</div>';
+            angles.push(angle);
             angle+= step;
         }
         fingers.html(html);

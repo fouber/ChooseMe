@@ -1,17 +1,11 @@
 define(function(require){
 
-    location.href='http://192.168.1.102:8080/test.html';
-
-    $(document.body).on('touchstart', '.btn', function(e){
+    $(document.body).on('touchstart', '.btn', function(){
         $(this).addClass('active');
-        e.preventDefault();
-        e.stopPropagation();
     });
 
-    $(document.body).on('touchend', '.btn', function(e){
+    $(document.body).on('touchend', '.btn', function(){
         $(this).removeClass('active');
-        e.preventDefault();
-        e.stopPropagation();
     });
 
     var page = require('page');
@@ -19,25 +13,26 @@ define(function(require){
     var number = require('number');
 
     $('#home').on('touchend', function(){
-        page.show('index');
+        if(info.canGoHome){
+            info.choosing = false;
+            page.show('index');
+            $('#fingers').html('');
+        }
     });
 
     setTimeout(function(){
         page.show('index');
 //        require('finger').show('把手指放上去');
-        $('#menu').on('touchend', 'a[data-type]', function(){
+        $('#menu').on('touchend', '.btn', function(){
             var $this = $(this);
-            info.type = $this.data('type');
+            var type = $this.data('type');
             var text = $this.text();
-            switch (info.type){
+            switch (type){
                 case 'zxh':
                     break;
                 case 'dmx':
                     break;
-                case 'sfz':
-                    number.show(info.text = text);
-                    break;
-                case 'tsd':
+                default:
                     number.show(info.text = text);
                     break;
             }

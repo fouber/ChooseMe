@@ -1,7 +1,5 @@
 define(function(require){
 
-    FastClick.attach(document.body);
-
     $(document.body).on('touchstart', '.btn', function(){
         $(this).addClass('active');
     });
@@ -14,31 +12,27 @@ define(function(require){
     var info = require('info');
     var number = require('number');
 
-    var $home = $('#home');
-    $home.on('touchstart', function(){
-        $(this).css('margin-top', '5px');
-    });
-    $home.on('touchend', function(){
-        $(this).css('margin-top', '0');
-        page.show('index');
+    $('#home').on('touchend', function(){
+        if(info.canGoHome){
+            info.choosing = false;
+            page.show('index');
+            $('#fingers').html('');
+        }
     });
 
     setTimeout(function(){
         page.show('index');
 //        require('finger').show('把手指放上去');
-        $('#menu').on('touchend', 'a[data-type]', function(){
+        $('#menu').on('touchend', '.btn', function(){
             var $this = $(this);
-            info.type = $this.data('type');
+            var type = $this.data('type');
             var text = $this.text();
-            switch (info.type){
+            switch (type){
                 case 'zxh':
                     break;
                 case 'dmx':
                     break;
-                case 'sfz':
-                    number.show(info.text = text);
-                    break;
-                case 'tsd':
+                default:
                     number.show(info.text = text);
                     break;
             }
