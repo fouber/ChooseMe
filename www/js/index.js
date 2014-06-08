@@ -1,15 +1,11 @@
 define(function(require){
 
-    $(document.body).on('touchstart', '.btn', function(e){
+    $(document.body).on('touchstart', '.btn', function(){
         $(this).addClass('active');
-        e.preventDefault();
-        e.stopPropagation();
     });
 
-    $(document.body).on('touchend', '.btn', function(e){
+    $(document.body).on('touchend', '.btn', function(){
         $(this).removeClass('active');
-        e.preventDefault();
-        e.stopPropagation();
     });
 
     var page = require('page');

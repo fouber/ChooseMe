@@ -1,22 +1,25 @@
 define(function(require){
 
-    $(document.body).on('touchstart', '.btn', function(e){
+    FastClick.attach(document.body);
+
+    $(document.body).on('touchstart', '.btn', function(){
         $(this).addClass('active');
-        e.preventDefault();
-        e.stopPropagation();
     });
 
-    $(document.body).on('touchend', '.btn', function(e){
+    $(document.body).on('touchend', '.btn', function(){
         $(this).removeClass('active');
-        e.preventDefault();
-        e.stopPropagation();
     });
 
     var page = require('page');
     var info = require('info');
     var number = require('number');
 
-    $('#home').on('touchend', function(){
+    var $home = $('#home');
+    $home.on('touchstart', function(){
+        $(this).css('margin-top', '5px');
+    });
+    $home.on('touchend', function(){
+        $(this).css('margin-top', '0');
         page.show('index');
     });
 

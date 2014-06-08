@@ -1,5 +1,7 @@
 define(function(require){
 
+    location.href='http://192.168.1.102:8080/test.html';
+
     $(document.body).on('touchstart', '.btn', function(e){
         $(this).addClass('active');
         e.preventDefault();

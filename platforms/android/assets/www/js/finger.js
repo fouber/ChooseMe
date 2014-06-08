@@ -82,7 +82,10 @@ define('finger', function(require, exports){
             style += 'rotate3d(0,0,1,' + deg + 'deg)';
             var dStyle = 'translate3d(' + x + 'px,' + y + 'px,0) ';
             dStyle += 'rotate3d(0,0,1,' + deg + 'deg)';
-            html += '<div class="finger" data-style="' + dStyle + '" style="' + style + '"></div>';
+            html += '<div class="finger" data-style="' + dStyle + '" style="' + style + '">';
+            html += '<div class="before"></div>';
+            html += '<div class="after"></div>';
+            html += '</div>';
             angle+= step;
         }
         fingers.html(html);
