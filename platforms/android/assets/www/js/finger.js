@@ -73,7 +73,7 @@ define('finger', function(require, exports){
         $tip.append(arrow);
         var index = Math.floor(Math.random() * angles.length);
         var target = Math.PI * 6 + angles[index] + Math.PI / 2;
-        var angle = 0, speed = 100;
+        var angle = 0, speed = 20;
         var timer = setInterval(function(){
             if(Math.abs(target - angle) < 0.1){
                 angle = target;
@@ -83,7 +83,7 @@ define('finger', function(require, exports){
                 angle += (target - angle) / speed;
             }
             arrow.style.webkitTransform = 'rotate3d(0,0,1,' + (angle * 180 / Math.PI) + 'deg)';
-        }, 0);
+        }, 20);
     }
 
     exports.tip = function(num){
