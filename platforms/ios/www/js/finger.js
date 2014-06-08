@@ -8,17 +8,45 @@ define('finger', function(require, exports){
     var RADIUS = 45;
     var OFFSET = 1000 - RADIUS;
 
+    var timer;
+    var count = info.number;
+
     $(document.body).on('touchstart', '.finger', function(e){
         $(this).addClass('on');
+        count--;
+        check();
         e.preventDefault();
         e.stopPropagation();
     });
 
     $(document.body).on('touchend', '.finger', function(e){
         $(this).removeClass('on');
+        count++;
+        check();
         e.preventDefault();
         e.stopPropagation();
     });
+
+    function check(){
+        clearTimeout(timer);
+        exports.tip(count);
+        if(count === 0){
+            var index = 3;
+            timer = setTimeout(function(){
+                $('#tip').html('倒计时 <em>' + index + '</em> 秒！');
+                if(count === 0 && index === 0){
+                    start();
+                } else if(count === 0){
+                    index--;
+                    timer = setTimeout(arguments.callee, 1000);
+                }
+            }, 1000);
+        }
+    }
+
+    function start(){
+        $('#tip').html('GO!');
+    }
 
     exports.tip = function(num){
         $('#tip').html('还差 <span>' + num + '</span> 根手指！');
@@ -34,15 +62,15 @@ define('finger', function(require, exports){
         var fingers = $('#fingers');
         fingers.html('');
         this.tip(info.number);
-        var num = info.number;
+        count = info.number;
         var html = '';
-        var step = 2 * Math.PI / num;
+        var step = 2 * Math.PI / count;
         var a = WIDTH / 3.5;
         var b = HEIGHT / 3.5;
         var x0 = WIDTH / 2 + OFFSET;
         var y0 = HEIGHT / 2 + OFFSET;
-        var angle = Math.PI / 2;
-        for(var i = 0; i < num; i++){
+        var angle = Math.PI / 2 + Math.PI / 6 * (1 - 2 * Math.random());
+        for(var i = 0; i < count; i++){
             var x = Math.floor(a * Math.cos(angle)) + x0;
             var y = Math.floor(b * Math.sin(angle)) + y0;
             var x2 = Math.floor(WIDTH * Math.cos(angle)) + x0;

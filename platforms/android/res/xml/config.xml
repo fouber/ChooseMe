@@ -5,6 +5,7 @@
         <param name="android-package" value="org.apache.cordova.App" />
     </feature>
     <name>ChooseOne</name>
+    <preference name="Orientation" value="portrait" />
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
     </description>
@@ -12,7 +13,5 @@
         Apache Cordova Team
     </author>
     <content src="index.html" />
-    <preference name="Fullscreen" value="true" />
-    <preference name="Orientation" value="portrait" />
     <access origin="*" />
 </widget>
