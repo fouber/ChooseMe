@@ -1,5 +1,14 @@
 define(function(require){
 
+    window.onerror = function(){
+        var str = [
+            '错误: ' + arguments[0],
+            '文件: ' + arguments[1],
+            '行号: ' + arguments[2]
+        ].join('\n');
+        alert(str);
+    };
+
     $(document.body).on('touchstart', '.btn', function(){
         $(this).addClass('active');
     });
@@ -8,34 +17,8 @@ define(function(require){
         $(this).removeClass('active');
     });
 
-    var page = require('page');
-    var info = require('info');
-    var number = require('number');
-
-    $('#home').on('touchend', function(){
-        if(info.canGoHome){
-            info.choosing = false;
-            page.show('index');
-            $('#fingers').html('');
-        }
-    });
-
     setTimeout(function(){
-        page.show('index');
-//        require('finger').show('把手指放上去');
-        $('#menu').on('touchend', '.btn', function(){
-            var $this = $(this);
-            var type = $this.data('type');
-            var text = $this.text();
-            switch (type){
-                case 'zxh':
-                    break;
-                case 'dmx':
-                    break;
-                default:
-                    number.show(info.text = text);
-                    break;
-            }
-        });
+        require('menu').render('#menu', 'menu');
+        require('page').show('index');
     }, 100);
 });

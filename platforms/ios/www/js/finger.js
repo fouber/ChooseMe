@@ -2,6 +2,7 @@ define('finger', function(require, exports){
 
     var page = require('page');
     var info = require('info');
+    var sound = require('sound');
 
     var WIDTH = document.body.clientWidth;
     var HEIGHT = document.body.clientHeight - 100;
@@ -16,6 +17,7 @@ define('finger', function(require, exports){
 
     $(document.body).on('touchstart', '.finger', function(e){
         if(info.choosing) return;
+        sound.ready.stop();
         $(this).addClass('on');
         count--;
         check();
@@ -25,6 +27,7 @@ define('finger', function(require, exports){
 
     $(document.body).on('touchend', '.finger', function(e){
         if(info.choosing) return;
+        sound.ready.stop();
         $(this).removeClass('on');
         count++;
         check();
@@ -33,6 +36,7 @@ define('finger', function(require, exports){
     });
 
     function finish(index){
+        sound.win.play();
         $('.finger').each(function(i){
             var $this = $(this);
             if(index !== i){
@@ -49,16 +53,21 @@ define('finger', function(require, exports){
         clearTimeout(timer);
         exports.tip(count);
         if(count === 0){
-            var index = 3;
+            var index = 2;
             timer = setTimeout(function(){
-                $('#tip').html('倒计时 <em>' + index + '</em> 秒！');
+                if(index === 2){
+                    $('#tip').html('<em>Ready?</em>');
+                    sound.ready.play();
+                } else {
+                    $('#tip').html('<em>Go!</em>');
+                }
                 if(count === 0 && index === 0){
                     start();
                 } else if(count === 0){
                     index--;
-                    timer = setTimeout(arguments.callee, 1000);
+                    timer = setTimeout(arguments.callee, 800);
                 }
-            }, 1000);
+            }, 800);
         }
     }
 
@@ -72,10 +81,10 @@ define('finger', function(require, exports){
         arrow.style.top = 0 + 'px';
         $tip.append(arrow);
         var index = Math.floor(Math.random() * angles.length);
-        var target = Math.PI * 6 + angles[index] + Math.PI / 2;
-        var angle = 0, speed = 20;
+        var target = Math.PI * 10 + angles[index] + Math.PI / 2;
+        var angle = 0, speed = 30;
         var timer = setInterval(function(){
-            if(Math.abs(target - angle) < 0.1){
+            if(Math.abs(target - angle) < 0.3){
                 angle = target;
                 clearInterval(timer);
                 finish(index);
