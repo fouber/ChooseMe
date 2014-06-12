@@ -7,7 +7,10 @@ define('menu', function (require, exports) {
     var sound = require('sound');
     var touchmoved = false;
 
-    $('#home').on('touchend', page.home);
+    $('#home').on('touchend', function(){
+        sound.back.play();
+        page.home();
+    });
     $(document).on('backbutton', page.home);
     $(document.body).on('touchstart', function () {
         touchmoved = false;

@@ -23,12 +23,17 @@
 /Users/fouber/temp/cordova-test/ChooseOne/platforms/android/assets/www/js \
 /Users/fouber/temp/cordova-test/ChooseOne/platforms/android/assets/www/plugins \
 /Users/fouber/temp/cordova-test/ChooseOne/platforms/android/assets/www/assets/arrow.png \
+/Users/fouber/temp/cordova-test/ChooseOne/platforms/android/assets/www/assets/back.mp3 \
 /Users/fouber/temp/cordova-test/ChooseOne/platforms/android/assets/www/assets/finger-inner.png \
 /Users/fouber/temp/cordova-test/ChooseOne/platforms/android/assets/www/assets/finger-outer.png \
 /Users/fouber/temp/cordova-test/ChooseOne/platforms/android/assets/www/assets/finger.png \
-/Users/fouber/temp/cordova-test/ChooseOne/platforms/android/assets/www/assets/ready.ogg \
+/Users/fouber/temp/cordova-test/ChooseOne/platforms/android/assets/www/assets/press.mp3 \
+/Users/fouber/temp/cordova-test/ChooseOne/platforms/android/assets/www/assets/ready.mp3 \
+/Users/fouber/temp/cordova-test/ChooseOne/platforms/android/assets/www/assets/select.mp3 \
 /Users/fouber/temp/cordova-test/ChooseOne/platforms/android/assets/www/assets/slogan.png \
+/Users/fouber/temp/cordova-test/ChooseOne/platforms/android/assets/www/assets/start.mp3 \
 /Users/fouber/temp/cordova-test/ChooseOne/platforms/android/assets/www/assets/wave.png \
+/Users/fouber/temp/cordova-test/ChooseOne/platforms/android/assets/www/assets/win.mp3 \
 /Users/fouber/temp/cordova-test/ChooseOne/platforms/android/assets/www/css/font-awesome.css \
 /Users/fouber/temp/cordova-test/ChooseOne/platforms/android/assets/www/css/index.css \
 /Users/fouber/temp/cordova-test/ChooseOne/platforms/android/assets/www/css/reset.css \
@@ -45,6 +50,7 @@
 /Users/fouber/temp/cordova-test/ChooseOne/platforms/android/assets/www/js/menu.js \
 /Users/fouber/temp/cordova-test/ChooseOne/platforms/android/assets/www/js/number.js \
 /Users/fouber/temp/cordova-test/ChooseOne/platforms/android/assets/www/js/page.js \
+/Users/fouber/temp/cordova-test/ChooseOne/platforms/android/assets/www/js/sound.js \
 /Users/fouber/temp/cordova-test/ChooseOne/platforms/android/assets/www/js/zepto.min.js \
 /Users/fouber/temp/cordova-test/ChooseOne/platforms/android/assets/www/plugins/org.apache.cordova.device-motion \
 /Users/fouber/temp/cordova-test/ChooseOne/platforms/android/assets/www/plugins/org.apache.cordova.file \
