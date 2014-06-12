@@ -6,6 +6,7 @@
 /Users/fouber/temp/cordova-test/ChooseOne/platforms/android/ant-build/classes/me/try_catch/chooseone/R$string.class \
 /Users/fouber/temp/cordova-test/ChooseOne/platforms/android/ant-build/classes/me/try_catch/chooseone/R$xml.class \
 /Users/fouber/temp/cordova-test/ChooseOne/platforms/android/ant-build/classes/me/try_catch/chooseone/R.class \
+/Users/fouber/temp/cordova-test/ChooseOne/platforms/android/ant-build/classes/org/apache/cordova/device/Device.class \
 /Users/fouber/temp/cordova-test/ChooseOne/platforms/android/ant-build/classes/org/apache/cordova/devicemotion/AccelListener$1.class \
 /Users/fouber/temp/cordova-test/ChooseOne/platforms/android/ant-build/classes/org/apache/cordova/devicemotion/AccelListener.class \
 /Users/fouber/temp/cordova-test/ChooseOne/platforms/android/ant-build/classes/org/apache/cordova/file/ContentFilesystem.class \

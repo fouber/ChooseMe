@@ -45,9 +45,9 @@ define('menu', function (require, exports) {
     var currentSub;
     function onWatchSuccess(acceleration) {
         if (
-            Math.abs(acceleration.x) > 12 ||
-            Math.abs(acceleration.y) > 12 ||
-            Math.abs(acceleration.z) > 12
+            Math.abs(acceleration.x) > 11 ||
+            Math.abs(acceleration.y) > 11 ||
+            Math.abs(acceleration.z) > 11
         ) {
             clearTimeout(timer);
             timer = setTimeout(function () {
@@ -57,8 +57,8 @@ define('menu', function (require, exports) {
             if(++shakeCount > 2){
                 $('#sub-menu').addClass('shake');
                 exports.render('#sub-menu', getItems(currentSub));
-                navigator.notification.vibrate();
                 shakeCount = 0;
+                navigator.notification.vibrate(300);
             }
         }
     }

@@ -52,10 +52,13 @@
 /Users/fouber/temp/cordova-test/ChooseOne/platforms/android/assets/www/js/page.js \
 /Users/fouber/temp/cordova-test/ChooseOne/platforms/android/assets/www/js/sound.js \
 /Users/fouber/temp/cordova-test/ChooseOne/platforms/android/assets/www/js/zepto.min.js \
+/Users/fouber/temp/cordova-test/ChooseOne/platforms/android/assets/www/plugins/org.apache.cordova.device \
 /Users/fouber/temp/cordova-test/ChooseOne/platforms/android/assets/www/plugins/org.apache.cordova.device-motion \
 /Users/fouber/temp/cordova-test/ChooseOne/platforms/android/assets/www/plugins/org.apache.cordova.file \
 /Users/fouber/temp/cordova-test/ChooseOne/platforms/android/assets/www/plugins/org.apache.cordova.media \
 /Users/fouber/temp/cordova-test/ChooseOne/platforms/android/assets/www/plugins/org.apache.cordova.vibration \
+/Users/fouber/temp/cordova-test/ChooseOne/platforms/android/assets/www/plugins/org.apache.cordova.device/www \
+/Users/fouber/temp/cordova-test/ChooseOne/platforms/android/assets/www/plugins/org.apache.cordova.device/www/device.js \
 /Users/fouber/temp/cordova-test/ChooseOne/platforms/android/assets/www/plugins/org.apache.cordova.device-motion/www \
 /Users/fouber/temp/cordova-test/ChooseOne/platforms/android/assets/www/plugins/org.apache.cordova.device-motion/www/Acceleration.js \
 /Users/fouber/temp/cordova-test/ChooseOne/platforms/android/assets/www/plugins/org.apache.cordova.device-motion/www/accelerometer.js \

@@ -3,13 +3,18 @@ define('sound', function(require, exports){
     $(document).on('deviceready', function(){
 
         var Sound = exports.Sound = function(src){
+            if (device.platform == 'Android') {
+                src = '/android_asset/www/' + src;
+            }
             this.audio = new Media(src);
         };
         Sound.prototype.play = function(){
+            this.audio.seekTo(0);
             this.audio.play();
         };
         Sound.prototype.stop = function(){
-            this.audio.pause();
+            this.audio.stop();
+            this.audio.release();
         };
 
         exports.ready = new Sound('assets/ready.mp3');

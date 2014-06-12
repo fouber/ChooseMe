@@ -36,6 +36,13 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/org.apache.cordova.device/www/device.js",
+        "id": "org.apache.cordova.device.device",
+        "clobbers": [
+            "device"
+        ]
+    },
+    {
         "file": "plugins/org.apache.cordova.file/www/DirectoryEntry.js",
         "id": "org.apache.cordova.file.DirectoryEntry",
         "clobbers": [
@@ -171,6 +178,7 @@ module.exports.metadata =
     "org.apache.cordova.device-motion": "0.2.7",
     "org.apache.cordova.vibration": "0.3.8",
     "org.apache.cordova.media": "0.2.10",
+    "org.apache.cordova.device": "0.2.9",
     "org.apache.cordova.file": "1.1.0"
 }
 // BOTTOM OF METADATA
