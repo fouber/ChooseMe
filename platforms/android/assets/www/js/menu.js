@@ -7,11 +7,13 @@ define('menu', function (require, exports) {
     var sound = require('sound');
     var touchmoved = false;
 
-    $('#home').on('touchend', function(){
+    function back(){
         sound.back.play();
         page.home();
-    });
-    $(document).on('backbutton', page.home);
+    }
+
+    $('#home').on('touchend', back);
+    $(document).on('backbutton', back);
     $(document.body).on('touchstart', function () {
         touchmoved = false;
     });
@@ -118,9 +120,12 @@ define('menu', function (require, exports) {
             if (typeof item === 'string') {
                 item = { title: item };
             }
+            var size = Math.floor(220 / item.title.length);
+            size = Math.max(12, Math.min(20, size));
             html += '<a href="javascript:void(0)" data-choose' +
                 (item.sub ? ' data-sub="' + item.sub + '"' : '') +
-                ' class="btn">' + item.title + '</a>';
+                ' style="font-size:' + size + 'px"' +
+                ' class="btn" >' + item.title + '</a>';
         });
         $(selector).html(html);
     };
