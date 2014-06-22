@@ -1,19 +1,14 @@
 define('log', function(require, exports){
 
     var data = require('data');
-    var TYPES  = {
-        zxh : 1,
-        dmx : 2,
-        menu: 3
-    };
-    exports.play = function(id, type){
+    exports.play = function(id, category){
         var url = '/party/updateusetimes';
-        url += '?questionId=' + id;
-        url += '&questionType=' + (TYPES[type] || -1);
-        url = data.getUrl(url);
-        console.log('-----------------');
+        url += '?questionId=' + (id || -1);
+        url += '&questionType=' + (category || -1);
+        console.log('-------------------');
         console.log(url);
-        console.log('-----------------');
+        console.log('-------------------');
+        url = data.getUrl(url);
         var img = new Image();
         img.src = url;
     };

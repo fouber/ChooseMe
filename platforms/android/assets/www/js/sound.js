@@ -10,7 +10,7 @@ define('sound', function(require, exports){
         };
         Sound.prototype.play = function(){
             this.audio.seekTo(0);
-            this.audio.setVolume(0.5);
+            this.audio.setVolume(0.7);
             this.audio.play();
         };
         Sound.prototype.stop = function(){

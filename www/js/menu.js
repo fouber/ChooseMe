@@ -115,11 +115,10 @@ define('menu', function (require, exports) {
                 currentSub = sub;
                 exports.render('#sub-menu', getItems(sub));
                 page.show('sub', text);
-                info.type = sub;
             } else {
                 number.show(info.text = text);
-                info.type = $this.data('type') || info.type || 'unknown';
-                info.id = $this.data('id') || -1;
+                info.id = $this.data('id');
+                info.type = $this.data('category');
             }
         }
         touchmoved = false;
@@ -142,7 +141,7 @@ define('menu', function (require, exports) {
             html += '<a href="javascript:void(0)" data-choose' +
                 (item.sub ? ' data-sub="' + item.sub + '"' : '') +
                 (item.id ? ' data-id="' + item.id + '"' : '') +
-                (item.type ? ' data-type="' + item.type + '"' : '') +
+                (item.category ? ' data-category="' + item.category + '"' : '') +
                 ' style="font-size:' + size + 'px"' +
                 ' class="btn" >' + item.title + '</a>';
         });
