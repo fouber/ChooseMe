@@ -43,6 +43,20 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/org.apache.cordova.console/www/console-via-logger.js",
+        "id": "org.apache.cordova.console.console",
+        "clobbers": [
+            "console"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.console/www/logger.js",
+        "id": "org.apache.cordova.console.logger",
+        "clobbers": [
+            "cordova.logger"
+        ]
+    },
+    {
         "file": "plugins/org.apache.cordova.file/www/DirectoryEntry.js",
         "id": "org.apache.cordova.file.DirectoryEntry",
         "clobbers": [
@@ -179,6 +193,7 @@ module.exports.metadata =
     "org.apache.cordova.vibration": "0.3.8",
     "org.apache.cordova.media": "0.2.10",
     "org.apache.cordova.device": "0.2.9",
+    "org.apache.cordova.console": "0.2.9",
     "org.apache.cordova.file": "1.1.0"
 }
 // BOTTOM OF METADATA

@@ -1,14 +1,12 @@
 define('data', function (require, exports) {
 
-    var REMOTE = 'http://115.29.246.117:8981/party/clientconfig';
-
     var hardcode = {
         "menu": [
             {"title": "真心话", "sub": "zxh"},
             {"title": "大冒险", "sub": "dmx"},
-            {"title": "谁请客"},
-            {"title": "幸运儿"},
-            {"title": "倒霉蛋"}
+            {"title": "谁请客", "type": "menu", "id": 1},
+            {"title": "幸运儿", "type": "menu", "id": 2},
+            {"title": "倒霉蛋", "type": "menu", "id": 3}
         ],
         "zxh": [
             {"id": 2, "title": "最喜欢在座哪位异性？"},
@@ -71,12 +69,19 @@ define('data', function (require, exports) {
         ]
     };
 
+    var REMOTE = 'http://115.29.246.117:8981';
+
+    exports.getUrl = function(path){
+        return REMOTE + path;
+    };
+
     if (REMOTE) {
-        var url = REMOTE;
+        var url = '/party/clientconfig';
         try {
             url += '?hashCode=' + JSON.parse(localStorage.getItem('hash'));
         } catch (e) {
         }
+        url = exports.getUrl(url);
         $.getJSON(url, function (data) {
             data = data.configData || {};
             $.each(data, function (key, value) {

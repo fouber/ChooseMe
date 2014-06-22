@@ -35,6 +35,9 @@
     <feature name="Device">
         <param name="ios-package" value="CDVDevice" />
     </feature>
+    <feature name="Console">
+        <param name="ios-package" value="CDVLogger" />
+    </feature>
     <name>ChooseOne</name>
     <preference name="Orientation" value="portrait" />
     <description>

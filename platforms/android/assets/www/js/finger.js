@@ -3,6 +3,7 @@ define('finger', function(require, exports){
     var page = require('page');
     var info = require('info');
     var sound = require('sound');
+    var log = require('log');
 
     var WIDTH = document.body.clientWidth;
     var HEIGHT = document.body.clientHeight - 100;
@@ -93,6 +94,7 @@ define('finger', function(require, exports){
             }
             arrow.style.webkitTransform = 'rotate3d(0,0,1,' + (angle * 180 / Math.PI) + 'deg)';
         }, 20);
+        log.play(info.id, info.type);
     }
 
     exports.tip = function(num){

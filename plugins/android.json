@@ -73,6 +73,9 @@
         },
         "org.apache.cordova.device": {
             "PACKAGE_NAME": "me.try_catch.chooseone"
+        },
+        "org.apache.cordova.console": {
+            "PACKAGE_NAME": "me.try_catch.chooseone"
         }
     },
     "dependent_plugins": {
