@@ -67,7 +67,7 @@ define('finger', function(require, exports){
                     index--;
                     timer = setTimeout(arguments.callee, 800);
                 }
-            }, 800);
+            }, 500);
         }
     }
 
@@ -81,7 +81,7 @@ define('finger', function(require, exports){
         arrow.style.top = 0 + 'px';
         $tip.append(arrow);
         var index = Math.floor(Math.random() * angles.length);
-        var target = Math.PI * 10 + angles[index] + Math.PI / 2;
+        var target = Math.PI * 6 + angles[index] + Math.PI / 2;
         var angle = 0, speed = 30;
         var timer = setInterval(function(){
             if(Math.abs(target - angle) < 0.3){

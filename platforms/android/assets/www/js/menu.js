@@ -9,8 +9,8 @@ define('menu', function (require, exports) {
     var currentSub;
 
     function back(){
-        sound.back.play();
         page.home();
+        sound.back.play();
     }
 
     $('#home').on('touchend', back);
