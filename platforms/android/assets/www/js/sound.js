@@ -7,10 +7,10 @@ define('sound', function(require, exports){
                 src = '/android_asset/www/' + src;
             }
             this.audio = new Media(src);
+            this.audio.setVolume('0.5');
         };
         Sound.prototype.play = function(){
             this.audio.seekTo(0);
-            this.audio.setVolume(0.7);
             this.audio.play();
         };
         Sound.prototype.stop = function(){
