@@ -6,6 +6,7 @@ define('menu', function (require, exports) {
     var page = require('page');
     var sound = require('sound');
     var touchmoved = false;
+    var currentSub;
 
     function back(){
         sound.back.play();
@@ -19,6 +20,19 @@ define('menu', function (require, exports) {
     });
     $(document.body).on('touchmove', function () {
         touchmoved = true;
+    });
+
+    var shakeTimer;
+    $('#sub-change').on('touchend', function(){
+        if(currentSub) {
+            clearTimeout(shakeTimer);
+            shakeTimer = setTimeout(function(){
+                $('#sub-menu').removeClass('shake');
+            }, 800);
+            exports.render('#sub-menu', getItems(currentSub));
+            $('#sub-menu').addClass('shake');
+            sound.change.play();
+        }
     });
 
     var items = {
@@ -44,7 +58,6 @@ define('menu', function (require, exports) {
         }
     }
 
-    var currentSub;
     function onWatchSuccess(acceleration) {
         if (
             Math.abs(acceleration.x) > 11 ||
@@ -56,11 +69,12 @@ define('menu', function (require, exports) {
                 shakeCount = 0;
                 $('#sub-menu').removeClass('shake');
             }, 1500);
-            if(++shakeCount > 2){
+            if(++shakeCount > 1){
                 $('#sub-menu').addClass('shake');
                 exports.render('#sub-menu', getItems(currentSub));
                 shakeCount = 0;
                 navigator.notification.vibrate(300);
+                sound.change.play();
             }
         }
     }

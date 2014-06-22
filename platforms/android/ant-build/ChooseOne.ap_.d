@@ -24,6 +24,7 @@
 /Users/fouber/temp/cordova-test/ChooseOne/platforms/android/assets/www/plugins \
 /Users/fouber/temp/cordova-test/ChooseOne/platforms/android/assets/www/assets/arrow.png \
 /Users/fouber/temp/cordova-test/ChooseOne/platforms/android/assets/www/assets/back.mp3 \
+/Users/fouber/temp/cordova-test/ChooseOne/platforms/android/assets/www/assets/change.mp3 \
 /Users/fouber/temp/cordova-test/ChooseOne/platforms/android/assets/www/assets/finger-inner.png \
 /Users/fouber/temp/cordova-test/ChooseOne/platforms/android/assets/www/assets/finger-outer.png \
 /Users/fouber/temp/cordova-test/ChooseOne/platforms/android/assets/www/assets/finger.png \

@@ -23,6 +23,7 @@ define('sound', function(require, exports){
         exports.select = new Sound('assets/select.mp3');
         exports.start = new Sound('assets/start.mp3');
         exports.back = new Sound('assets/back.mp3');
+        exports.change = new Sound('assets/change.mp3');
 
     });
 
