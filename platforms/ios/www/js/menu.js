@@ -138,6 +138,7 @@ define('menu', function (require, exports) {
             size = Math.max(12, Math.min(20, size));
             html += '<a href="javascript:void(0)" data-choose' +
                 (item.sub ? ' data-sub="' + item.sub + '"' : '') +
+                (item.id ? ' data-id="' + item.id + '"' : '') +
                 ' style="font-size:' + size + 'px"' +
                 ' class="btn" >' + item.title + '</a>';
         });
